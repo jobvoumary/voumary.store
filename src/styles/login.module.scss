@@ -1,0 +1,32 @@
+.loginContainer{
+    background: #EFEFF3;
+    margin: -140px 16px 0;
+    padding: 20px 16px;
+
+    
+    @media (min-width: 768px) {
+        max-width: 500px;
+        margin: -140px auto;
+    }
+    h1{
+        color: #000;
+    }
+    .errorMessage{
+        margin-top: 8px;
+        color: red;
+    }
+    button{
+        width: 100%;
+        justify-content: center;
+
+        transition: filter 0.8s;
+
+        &:hover{
+            filter: opacity(0.8);
+        }
+
+        &:disabled{
+            background: gray;
+        }
+    }
+}
