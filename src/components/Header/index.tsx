@@ -13,7 +13,7 @@ function Header(props: IHeaderProps){
   return (
     <Container>
       <header>
-        <img src="https://placehold.it/300x100" alt="@voumary" />
+        <img src="https://i.imgur.com/UAAhJRr.png" alt="@voumary" />
         {isAdmin ? (
           <nav>
           <div>

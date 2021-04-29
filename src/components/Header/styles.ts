@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: #c72828;
+  background: #FBCDCD;
   padding: 30px 0;
 
   header {
@@ -11,12 +11,12 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 8px 160px;
-    @media(min-width){
-      padding: 0 0 160px;
+    padding: 0px 8px 90px;
+    @media(min-width: 768px){
+      padding: 0 0 90px;
     }
     img{
-      width: 196px;
+      width: 120px;
       height: auto;
       @media(min-width: 768px){
         width: auto
