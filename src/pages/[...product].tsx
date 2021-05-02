@@ -5,6 +5,7 @@ import api from '../services/api'
 import "react-image-gallery/styles/css/image-gallery.css";
 import styles from '../styles/product.module.scss'
 import Header from '../components/Header';
+import Head from 'next/head';
 
 export default function ProductDetail(props) {
     const { product } = props
@@ -15,6 +16,10 @@ export default function ProductDetail(props) {
     }
     return (
         <>
+            <Head>
+                <title>T-shirt {product.name} - @voumary</title>
+                <meta name="og:image" content={product.image[0]}/>
+            </Head>
             <Header openModal={()=>{}} isAdmin={false} />
             <div className={styles.productDetailContainer}>
                 {/* <h1>{product.name}</h1> */}

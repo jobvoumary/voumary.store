@@ -8,7 +8,8 @@ export default function Home(props) {
   return (
     <div>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <title>Catálogo - @voumary</title>
+        <meta name="og:image" content="https://i.imgur.com/UAAhJRr.png"/>
       </Head>
      
       <Dashboard products={props.products}/>

@@ -41,7 +41,7 @@
             font-size: 20px;
         }
         h3{
-            font-weight: 500;
+            font-weight: bold;
             font-size: 16px;
         }
         p {
@@ -136,10 +136,14 @@
             bottom: 20px;
             
             text-decoration: none;
-            
+
             button {
+                margin: 0 auto;
                 margin-top: 48px;
                 align-self: flex-end;
+                width: 100%;
+
+                max-width:  400px;
               }
               
               button {
@@ -155,6 +159,7 @@
             
                 .text {
                   padding: 16px 24px;
+                  flex-grow: 2;
                 }
             
                 .icon {

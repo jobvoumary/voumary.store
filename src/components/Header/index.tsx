@@ -1,35 +1,40 @@
+import Link from 'next/link';
 import { FiPlusSquare } from 'react-icons/fi';
 
 import { Container } from './styles';
 
 interface IHeaderProps {
-  openModal: ()=>void,
+  openModal: () => void,
   isAdmin?: Boolean
 }
 
-function Header(props: IHeaderProps){
+function Header(props: IHeaderProps) {
   const { openModal } = props;
   const isAdmin = props.isAdmin
   return (
     <Container>
       <header>
-        <img src="https://i.imgur.com/UAAhJRr.png" alt="@voumary" />
+        <Link href="/">
+          <a>
+            <img src="https://i.imgur.com/UAAhJRr.png" alt="@voumary" />
+          </a>
+        </Link>
         {isAdmin ? (
           <nav>
-          <div>
-            <button
-              type="button"
-              onClick={openModal}
-            >
-              <div className="text">Nova T-shirt</div>
-              <div className="icon">
-                <FiPlusSquare size={24} />
-              </div>
-            </button>
-          </div>
-        </nav>
-        ): null}
-        
+            <div>
+              <button
+                type="button"
+                onClick={openModal}
+              >
+                <div className="text">Nova T-shirt</div>
+                <div className="icon">
+                  <FiPlusSquare size={24} />
+                </div>
+              </button>
+            </div>
+          </nav>
+        ) : null}
+
       </header>
     </Container>
   )
