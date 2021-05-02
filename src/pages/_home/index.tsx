@@ -29,12 +29,14 @@ function Dashboard(props: DashboardProps) {
   const handleAddFood = async (food: IFood) => {
 
     try {
-      const response = await api.post('/product', {
+      const data = {
         ...food,
+        image: JSON.parse(food.image),
         available: true,
-      });
-      
-      setProducts([...products, response.data]);
+      }
+      const response = await api.post('/product', data);
+
+      setProducts([...products, data]);
 
     } catch (err) {
       console.log(err);
@@ -44,10 +46,14 @@ function Dashboard(props: DashboardProps) {
   const handleUpdateFood = async (food: IFood) => {
 
     try {
-      const foodUpdated = await api.post(
-        `/product/update`,
-        { ...editingFood, ...food },
-      );
+      const image = JSON.parse(food.image)
+
+      const data = { 
+        ...editingFood,
+        ...food,
+        image
+      }
+      const foodUpdated = await api.post(`/product/update`, data);
 
       const foodsUpdated = products.map(f =>
         f.id !== foodUpdated.data.id ? f : foodUpdated.data,
@@ -86,7 +92,7 @@ function Dashboard(props: DashboardProps) {
   }
   return (
     <>
-      <Header openModal={toggleModal} isAdmin={props.isAdmin}/>
+      <Header openModal={toggleModal} isAdmin={props.isAdmin} />
       <ModalAddFood
         isOpen={modalOpen}
         setIsOpen={toggleModal}

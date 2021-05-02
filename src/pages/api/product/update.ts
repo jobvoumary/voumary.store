@@ -5,7 +5,7 @@ import { fauna } from './../../../services/fauna';
 export default async (req, res) => {
     if (req.method === 'POST') {
         const product = req.body
-        await fauna.query(
+        const queryResult = await fauna.query(
             query.Update(
               query.Ref(
                   query.Collection('products'), product.id
@@ -15,7 +15,7 @@ export default async (req, res) => {
               }
             )
           )
-        res.status(201).send()
+        res.status(201).json(queryResult.data)
     } 
     else  {
         res.status(200).send()

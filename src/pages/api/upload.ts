@@ -2,6 +2,7 @@ import nextConnect from 'next-connect';
 import multer from 'multer';
 import crypto from 'crypto';
 import { saveImageOnCloudAndGetURL } from '../../services/imgur';
+import fs from 'fs';
 
 const uploadLocal = multer({
   storage: multer.diskStorage({
@@ -22,8 +23,13 @@ const uploadStorage = async (req, res, next)=>{
             file => saveImageOnCloudAndGetURL(file.path)
         )
     )
+    await Promise.all(
+      files.map(
+        file => fs.promises.unlink(file.path)
+      )
+    )
     req.uploadedFiles = uploadedFiles
-    console.log(uploadedFiles)
+
     return next()
 }
 const apiRoute = nextConnect({

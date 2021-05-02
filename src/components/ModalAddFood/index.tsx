@@ -29,18 +29,16 @@ function ModalAddFood(props: IModalAddFoodProps) {
     handleAddFood(data);
     setIsOpen();
   };
-  console.log(files)
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <Form onSubmit={handleSubmit}>
         <h1>Nova T-Shirt</h1>
-        <ImageDropZone files={(files) => setFiles(files)}/>
-        <Input name="image" label="Imagem" placeholder="Cole o link aqui" />
 
-        <Input name="name" label="Nome do produto" placeholder="Ex: Moda Italiana" />
+        <Input name="name" label="Nome" placeholder="Ex: Moda Italiana" />
         <Input name="price" label="Preço" placeholder="Ex: 19.90" />
-
         <Input name="description" label="Descrição" placeholder="Descrição" />
+        <ImageDropZone files={(files) => setFiles(files)}/>
+       
         <button type="submit" data-testid="add-food-button">
           <p className="text">Salvar</p>
           <div className="icon">

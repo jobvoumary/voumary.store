@@ -3,6 +3,8 @@ import { FiCheckSquare } from 'react-icons/fi';
 import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
+import { ImageDropZone } from '../Dropzone';
+import { useState } from 'react';
 
 interface IModalEditFoodProps {
   isOpen: boolean,
@@ -20,6 +22,8 @@ interface IFoodRequest {
 }
 function ModalEditFood(props: IModalEditFoodProps) {
   const { isOpen, setIsOpen, editingFood } = props;
+
+  const [files, setFiles] = useState([])
   const handleSubmit = async (data:IFoodRequest) => {
     const { setIsOpen, handleUpdateFood } = props;
 
@@ -30,12 +34,10 @@ function ModalEditFood(props: IModalEditFoodProps) {
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <Form onSubmit={handleSubmit} initialData={editingFood}>
         <h1>Editar T-Shirt</h1>
-        <Input name="image" label="Imagem" placeholder="Cole o link aqui" />
-
         <Input name="name" label="Nome do produto" placeholder="Ex: Moda Italiana" />
         <Input name="price" label="Preço" placeholder="Ex: 19.90" />
-
         <Input name="description" label="Descrição" placeholder="Descrição" />
+        <ImageDropZone files={(files) => setFiles(files)} initialFiles={editingFood.image}/>
 
         <button type="submit" data-testid="edit-food-button">
           <div className="text">Salvar</div>

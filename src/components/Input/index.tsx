@@ -14,10 +14,11 @@ interface InputProps {
   icon?: ReactNode,
   label: string
   placeholder?: string,
-  type?: string
+  type?: string,
+  value?: string
 }
 const Input = (props: InputProps) => {
-  const { name, label, icon: Icon, ...rest } = props
+  const { name, label, icon: Icon, type, ...rest } = props
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
@@ -45,12 +46,13 @@ const Input = (props: InputProps) => {
 
   return (
     <Container isFilled={isFilled} isFocused={isFocused}>
-      <label>{label}</label>
+      { type !== 'hidden' ? <label>{label}</label> : null}
       <input
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         defaultValue={defaultValue}
         ref={inputRef}
+        type={type}
         {...rest}
       />
     </Container>

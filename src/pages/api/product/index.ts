@@ -16,8 +16,22 @@ export default async (req, res) => {
           )
         res.status(201).send()
     } 
+    else if(req.method === 'GET'){
+      const {id} = req.query
+      const queryResult = await fauna.query(
+          query.Get(
+            query.Ref(
+              query.Collection('products'),
+              id
+            )
+          )
+        )
+      const product = queryResult.data
+      product.id = queryResult.ref.id
+        res.status(200).json(product)
+    }
     else  {
         res.status(200).send()
     }
-}
   
+}

@@ -9,6 +9,9 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
 
   flex-direction: column;
+  a{
+    text-decoration:none;
+  }
   header {
     padding: 0px;
     margin: 0px;

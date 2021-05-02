@@ -7,7 +7,7 @@ export const Form = styled(Unform)`
   flex-direction: column;
 
   @media(min-width: 768px){
-    padding: 48px 40px;
+    padding: 24px 20px;
   }
   h1 {
     font-weight: 600;

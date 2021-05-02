@@ -12,13 +12,9 @@ export default function Login(){
     const handleSubmit = async(values) =>{
         setShowLoginError(false)
         setIsSubmiting(true)
-        const response = await api.post(
-            `/login`,
-            values
-            );
+        const response = await api.post(`/login`, values);
         setIsSubmiting(false)
         const { isValid } = response.data
-        console.log("🚀 ~ file: login.tsx ~ line 21 ~ handleSubmit ~ response.data", response.data)
         if(isValid){
             window.location = "/admin/painel"
         }

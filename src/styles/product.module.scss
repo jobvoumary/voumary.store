@@ -1,0 +1,171 @@
+.productDetailContainer{
+    margin-top: -120px;
+    padding-bottom: 20px ;
+    color: #333333;
+
+    .galleryContainer{
+        margin: 0px 20px;
+        padding: 24px;
+        background: #F0F0F5;
+        border-radius: 8px;
+
+        h1{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 32px;
+            color: #333333;
+            margin-top: 10px;
+        }
+        p{
+            display: flex;
+            flex-direction: column;
+            
+
+            font-size: 11px;
+            color: rgba(108, 108, 128, 0.5);
+            
+            .price{
+
+                font-size: 24px;
+                line-height: 28px;
+                color: #6C6C80;
+            }
+        }
+    }
+    .info{
+        margin-top: 20px;
+        padding: 0 20px;
+        
+        h2{
+            font-weight: 600;
+            font-size: 20px;
+        }
+        h3{
+            font-weight: 500;
+            font-size: 16px;
+        }
+        p {
+            font-size: 14px;
+        }
+        > div{
+            margin-bottom: 25px;
+        }
+
+        .variations{
+            list-style: none;
+            display: flex;
+            margin-top: 5px;
+            
+            li{
+                width: 25px;
+                height: 25px;
+                
+                border-radius: 5px;
+                
+                font-size: 0;
+                background: white;
+
+                border: 1px solid #C4C4C4;
+                
+                & + li{
+                    margin-left: 15px;
+                }
+            }
+        }
+        table{
+            margin-top: 5px;
+            border-spacing: 0px;
+            thead{
+                td{
+                    text-transform: uppercase;
+                    border: 1px solid;
+                    font-size: 14px;
+                    font-weight: 500;
+                    text-align:  center;
+                    
+                    padding:  4px;
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        border: 1px solid;
+                        border-top: none;
+                        
+                        font-size: 12px;
+
+                        font-weight: normal;
+                        text-align:  center;
+                        
+                        padding:  4px;
+
+                        &:first-child{
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+            tfoot{
+                td{
+                    border: 1px solid;
+                    border-top: none;
+                    
+                    font-size: 12px;
+
+                    font-weight: normal;
+                    text-align:  center;
+                    
+                    padding:  4px;
+
+                    &:first-child{
+                        text-transform: uppercase;
+                        font-weight: bold;
+
+                        text-align: right;
+
+                        border: none;
+                        border-right: 1px solid;
+                    }
+                }
+            }
+        }
+
+        .buttonContainer{
+            display: block;
+            position: sticky;
+            bottom: 20px;
+            
+            text-decoration: none;
+            
+            button {
+                margin-top: 48px;
+                align-self: flex-end;
+              }
+              
+              button {
+                font-weight: 600;
+                border-radius: 8px;
+                border: 0;
+                background: #39b100;
+                color: #fff;
+            
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            
+                .text {
+                  padding: 16px 24px;
+                }
+            
+                .icon {
+                  display: flex;
+                  padding: 16px 16px;
+                  background: #41c900;
+                  border-radius: 0 8px 8px 0;
+                  margin: 0 auto;
+                }
+              }
+        }
+        
+    }
+}
