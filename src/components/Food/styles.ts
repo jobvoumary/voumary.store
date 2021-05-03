@@ -64,12 +64,20 @@ export const Container = styled.div<ContainerProps>`
       color: #39b100;
       font-size: 18px;
       margin-top: 4px;
+      > span {
+        font-size: 13px;
+        color: #6C6C80;
+        display: block;
+      }
       b {
         font-weight: 600;
       }
       @media(min-width: 768px){
         margin-top: 16px;
         font-size: 24px;
+        > span {
+          font-size: 16px
+        }
       }
     }
   }

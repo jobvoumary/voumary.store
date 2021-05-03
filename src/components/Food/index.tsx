@@ -52,6 +52,7 @@ function Food(props: IFoodProps) {
             <h2>{food.name}</h2>
             <p>{food.description}</p>
             <p className="price">
+              <span>A partir de</span>
               R$ <b>{food.price}</b>
             </p>
           </section>
