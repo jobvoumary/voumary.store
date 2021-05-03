@@ -1,23 +1,33 @@
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
+import withSizes from 'react-sizes'
 import { FaWhatsapp } from 'react-icons/fa'
-import ImageGallery from 'react-image-gallery';
+
+import Header from '../components/Header';
+import Gallery from './../components/ImageGallery/index';
+
 import api from '../services/api'
 
-import withSizes from 'react-sizes'
 
 import "react-image-gallery/styles/css/image-gallery.css";
 import styles from '../styles/product.module.scss'
-import Header from '../components/Header';
-import Head from 'next/head';
-import React from 'react';
 
-const mapSizesToProps = ({ width }) => ({
-    isMobile: width < 768,
-})
 function ProductDetail(props) {
-    const { product, isMobile } = props
+    const { product } = props
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        setIsMobile(props.isMobile)
+    }, [])
     if (!product) {
         return (
-            <h1>Produto não encontrado</h1>
+            <>
+                <Header openModal={() => { }} isAdmin={false} />
+                <div className={styles.productDetailContainer}>
+                    <h1>Produto não encontrado</h1>
+
+                </div>
+            </>
         )
     }
     return (
@@ -26,20 +36,11 @@ function ProductDetail(props) {
                 <title>T-shirt {product.name} - @voumary</title>
                 <meta name="og:image" content={product.image[0]} />
             </Head>
-            <Header openModal={() => { }} isAdmin={false} />
+            <Header openModal={() => {}} isAdmin={false} />
 
             <div className={styles.productDetailContainer}>
                 <div className={styles.galleryContainer}>
-                    <ImageGallery
-                        thumbnailPosition={isMobile ? "bottom" : "left"}
-                        showThumbnails={isMobile ? false : true}
-                        showBullets={isMobile ? true : false}
-                        showNav={isMobile ? true : false}
-                        showPlayButton={false}
-                        items={product.image.map(image => ({
-                            original: image,
-                            thumbnail: image,
-                        }))} />
+                    <Gallery isMobile={isMobile} product={product} />
                     {isMobile ? (
                         <div>
                             <h1>{product.name}</h1>
@@ -48,12 +49,12 @@ function ProductDetail(props) {
                                 <span className={styles.price}>R$ {product.price}</span>
                             </p>
                         </div>
-                    ) : null }
+                    ) : null}
                 </div>
                 <div className={styles.info}>
-                {!isMobile ? (
+                    {!isMobile ? (
                         <h1>{product.name}</h1>
-                ) : null}
+                    ) : null}
                     <h2>Mais detalhes:</h2>
 
                     <div>
@@ -74,22 +75,6 @@ function ProductDetail(props) {
                             P - M - G: R$10,00<br />
                         GG: R$13,00
                     </p>
-                    </div>
-                    <div>
-                        <h3>Baixar imagens:</h3>
-                        {product.image.map((image, index) => {
-                            return (
-                                <React.Fragment key={image}>
-                                    <a key={image}
-                                        href={`${image}`}
-                                        download
-                                        target="_blank"
-                                    >
-                                         Imagem {index + 1}
-                                    </a> |
-                                </React.Fragment>
-                            )
-                        })}
                     </div>
                     <div>
                         <h3>Composição:</h3>
@@ -163,19 +148,30 @@ function ProductDetail(props) {
 
     )
 }
+const mapSizesToProps = ({ width }) => ({
+    isMobile: width < 768,
+})
 export default withSizes(mapSizesToProps)(ProductDetail)
 
 export async function getServerSideProps({ params }) {
-    const productID = params.product[1]
-    if (productID) {
-        const response = await api.get(`/product?id=${productID}`)
-        const product = response.data
+    try {
 
-        return {
-            props: { product }
+        const productID = params.product[1]
+        if (productID) {
+            const response = await api.get(`/product?id=${productID}`)
+            const product = response.data
+
+            return {
+                props: {
+                    product,
+                    isMobile: false
+                }
+            }
         }
-    }
-    return {
-        props: {}
+    } catch (error) {
+        return {
+            props: {}
+        }
+
     }
 }

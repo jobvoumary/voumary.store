@@ -16,7 +16,7 @@ function Header(props: IHeaderProps) {
       <header>
         <Link href="/">
           <a>
-            <img src="https://i.imgur.com/UAAhJRr.png" alt="@voumary" />
+            <img src="/logo.svg" alt="@voumary" />
           </a>
         </Link>
         {isAdmin ? (
