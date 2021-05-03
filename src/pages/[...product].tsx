@@ -11,6 +11,7 @@ import api from '../services/api'
 
 import "react-image-gallery/styles/css/image-gallery.css";
 import styles from '../styles/product.module.scss'
+import urlify from './../utils/index';
 
 function ProductDetail(props) {
     const { product } = props
@@ -134,7 +135,7 @@ function ProductDetail(props) {
                             Envio via correios ou excursão. Prazo de envio de até 8 dias úteis.
                     </p>
                     </div>
-                    <a className={styles.buttonContainer} href={`https://api.whatsapp.com/send?phone=${process.env.WHATSAPP_NUMBER}`}>
+                    <a className={styles.buttonContainer} href={`https://api.whatsapp.com/send?phone=${process.env.WHATSAPP_NUMBER}&text=Tenho interesse na T-shirt ${product.name} (https://voumary.vercel.app/${urlify(product.name)}/${product.id})`}>
                         <button type="submit" data-testid="add-food-button">
                             <p className={styles.text}>Enviar pedido no Whatsapp</p>
                             <div className={styles.icon}>
