@@ -6,7 +6,7 @@ import fs from 'fs';
 
 const uploadLocal = multer({
   storage: multer.diskStorage({
-    destination: '/uploads',
+    destination: '/',
     filename: (req, file, cb) => {
         const hash = crypto.randomBytes(16).toString('hex')
         const fileName = `${hash}-${file.originalname}`
