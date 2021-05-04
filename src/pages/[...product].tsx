@@ -135,7 +135,7 @@ function ProductDetail(props) {
                             Envio via correios ou excursão. Prazo de envio de até 8 dias úteis.
                     </p>
                     </div>
-                    <a className={styles.buttonContainer} target="_blank" href={`https://api.whatsapp.com/send?phone=${process.env.WHATSAPP_NUMBER}&text=Tenho interesse na T-shirt ${product.name} (https://voumary.vercel.app/${urlify(product.name)}/${product.id})`}>
+                    <a className={styles.buttonContainer} target="_blank" href={`https://api.whatsapp.com/send?phone=${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}&text=Tenho interesse na T-shirt ${product.name} (https://voumary.vercel.app/${urlify(product.name)}/${product.id})`}>
                         <button type="submit" data-testid="add-food-button">
                             <p className={styles.text}>Enviar pedido no Whatsapp</p>
                             <div className={styles.icon}>
