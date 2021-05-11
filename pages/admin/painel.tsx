@@ -45,6 +45,7 @@ export const getServerSideProps = withSession(async function ({ req, res }) {
       }
     )
     ).filter(product => product.price)
+    .map((product, index, products) => products[products.length - index - 1])
 
     return {
       props: { user: req.session.get("user"),  products: products },

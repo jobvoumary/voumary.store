@@ -59,18 +59,6 @@ function ProductDetail(props) {
                     <h2>Mais detalhes:</h2>
 
                     <div>
-                        <h3>Cores</h3>
-                        <ul className={styles.variations}>
-                            <li style={{ background: "#FF6400" }}>Verm</li>
-                            <li style={{ background: "#FFD600" }}>Azil</li>
-                            <li style={{ background: "#23ff0f" }}>Amar</li>
-                            <li style={{ background: "#A8A8B3" }}>Ver</li>
-                            <li style={{ background: "#AECFFF" }}>Preto</li>
-                            <li style={{ background: "#58be28" }}>Preto</li>
-                            <li style={{ background: "#dd00cb" }}>Preto</li>
-                        </ul>
-                    </div>
-                    <div>
                         <h3>Tamanhos e valores:</h3>
                         <p>
                             P - M - G: R$10,00<br />
@@ -83,52 +71,7 @@ function ProductDetail(props) {
                             Confeccionada em malha PV Poliéster 96% com viscose 4% e estampa com sublimação digital.
                     </p>
                     </div>
-                    <div>
-                        <h3>Medidas</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td>Tamanhos</td>
-                                    <td>P</td>
-                                    <td>M</td>
-                                    <td>G</td>
-                                    <td>GG</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Costas</td>
-                                    <td>65</td>
-                                    <td>69</td>
-                                    <td>71</td>
-                                    <td>75</td>
-                                </tr>
-                                <tr>
-                                    <td>Frente</td>
-                                    <td>65</td>
-                                    <td>69</td>
-                                    <td>71</td>
-                                    <td>75</td>
-                                </tr>
-                                <tr>
-                                    <td>Largura</td>
-                                    <td>65</td>
-                                    <td>69</td>
-                                    <td>71</td>
-                                    <td>75</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td>Valor:</td>
-                                    <td>R$ 10</td>
-                                    <td>R$ 10</td>
-                                    <td>R$ 10</td>
-                                    <td>R$ 13</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+                    
                     <div>
                         <h3>Formas e prazos de envio:</h3>
                         <p>

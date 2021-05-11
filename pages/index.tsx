@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
   )
     ).filter(product => product.price)
-  
+    .map((product, index, products) => products[products.length - index - 1])
   return {
    props:{
      products: products
