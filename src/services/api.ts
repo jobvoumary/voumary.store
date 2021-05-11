@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://voumary.vercel.app/api' ,
+  baseURL: process.env.API_BASE_URL,
 });
 
 export default api;

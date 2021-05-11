@@ -6,14 +6,14 @@ import fs from 'fs';
 
 const uploadLocal = multer({
   storage: multer.diskStorage({
-    destination: './',
+    destination: './src/public/uploads',
     filename: (req, file, cb) => {
         const hash = crypto.randomBytes(16).toString('hex')
         const fileName = `${hash}-${file.originalname}`
         
         return cb(null, fileName)
     }
-  }),
+  })
 });
 
 const uploadStorage = async (req, res, next)=>{
