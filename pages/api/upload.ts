@@ -4,30 +4,20 @@ import crypto from 'crypto';
 import { saveImageOnCloudAndGetURL } from '../../services/imgur';
 import fs from 'fs';
 
-const uploadLocal = multer({
-  storage: multer.diskStorage({
-    destination: './public/uploads',
-    filename: (req, file, cb) => {
-        const hash = crypto.randomBytes(16).toString('hex')
-        const fileName = `${hash}-${file.originalname}`
-        
-        return cb(null, fileName)
-    }
-  })
-});
+const uploadLocal = multer({});
 
 const uploadStorage = async (req, res, next)=>{
     const { files } = req 
     const uploadedFiles = await Promise.all(
         files.map(
-            file => saveImageOnCloudAndGetURL(file.path)
+            file => saveImageOnCloudAndGetURL(file.buffer.toString('base64'))
         )
     )
-    await Promise.all(
-      files.map(
-        file => fs.promises.unlink(file.path)
-      )
-    )
+    // await Promise.all(
+    //   files.map(
+    //     file => fs.promises.unlink(file.path)
+    //   )
+    // )
     req.uploadedFiles = uploadedFiles
 
     return next()
